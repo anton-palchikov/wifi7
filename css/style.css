@@ -3107,8 +3107,30 @@ hr {
        -o-transform: translateX(-50%);
           transform: translateX(-50%);
 }
+@media (max-width: 767px) {
+  .section__roadmap .history__arrow {
+    font-size: 19px;
+    position: relative;
+    left: initial;
+    top: initial;
+    -webkit-transform: initial;
+       -moz-transform: initial;
+        -ms-transform: initial;
+         -o-transform: initial;
+            transform: initial;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+}
 .section__roadmap .history__arrow .fa {
   font-size: 54px;
+}
+@media (max-width: 767px) {
+  .section__roadmap .history__arrow .fa {
+    font-size: 21px;
+  }
 }
 .section__roadmap .roadmap__wrap {
   position: relative;
