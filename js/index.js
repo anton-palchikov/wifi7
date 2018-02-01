@@ -9,7 +9,11 @@ initializeClock('clock_2', deadline);
 var status = 1;
 var status_1 = 1;
 
+var cookie = getCookie('subscribe');
 
+
+
+console.log(cookie);
 
 
 
@@ -147,9 +151,22 @@ $(window).on('load', function () {
             });
         },1900);
 
-        // setTimeout(function(){
-        //     $('.subscribe__overlay').fadeIn(400);
-        // },2000);
+        
+        setTimeout(function(){
+                $('.subscribe__overlay').fadeIn(400);
+            },1000);
+        
+
+        // if (cookie == null || cookie == undefined) {
+        
+            
+        //     setTimeout(function(){
+        //         $('.subscribe__overlay').fadeIn(400);
+        //     },5000);
+
+        //     setCookie('subscribe', '1', {expires:0});
+            
+        // }
 
         var item = document.getElementById('company');
 
@@ -210,7 +227,12 @@ $(window).scroll(function() {
                 opacity: 1,
             }, 1000);
 
-            if ($(window).width() <= 992) {
+            if ($(window).width() <= 575) {
+                $('.section__animated:eq('+i+') .section__title').animate({
+                    opacity: .4,
+                    left: '15',
+                });
+            } else if($(window).width() <= 992) {
                 $('.section__animated:eq('+i+') .section__title').animate({
                     opacity: .4,
                     left: '30',
@@ -256,7 +278,7 @@ $(window).scroll(function() {
         ];
 
         if (status == 1) {
-            Chart('chart', dataset, color_array, "Token Sale", "structure");
+            Chart('chart', dataset, color_array, "Token Sale", "scheme");
             status = 0;
         }
 
@@ -567,3 +589,53 @@ $('.subscribe__overlay a.close').click(function(e){
 
     return false;
 });
+
+
+$("#subscribeForm").submit(function( e ) {
+
+    e.preventDefault();
+
+    var form = $(this).serializeArray();
+    var submit = $('button[name=submit]', $(this));
+    console.log(form);
+    ajax(form);
+    return false;
+    
+}); 
+
+$('.history__arrow').click(function(e){
+    e.preventDefault();
+
+    $('.roadmap__history').slideToggle(900);
+    $(this).toggleClass('collapse');
+    if($(this).hasClass('collapse')) {
+        $('.history__arrow span').text('Hide Our History');
+        $('.history__arrow .fa').removeClass('fa-angle-double-up').addClass('fa-angle-double-down');
+    }else {
+        $('.history__arrow span').text('Show Our History');
+        $('.history__arrow .fa').removeClass('fa-angle-double-down').addClass('fa-angle-double-up');
+    }
+
+    return false;
+});
+
+
+
+function ajax(data){
+    $.post('http://vtine.ru/wifi7/mail.php', data, function(data){
+        data = JSON.parse(data);
+
+        if (data.status == 'success') {
+            $('.block__content').text(data.text);
+            $('.message__block').fadeIn();
+        } else {
+            $('.block__content').text(data.text);
+            $('.message__block').fadeIn();
+            setTimeout(function(){
+                $('.message__block').fadeOut();
+            }, 1500);
+        }
+
+    });
+
+}
