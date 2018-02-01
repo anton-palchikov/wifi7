@@ -11,12 +11,6 @@ var status_1 = 1;
 
 var cookie = getCookie('subscribe');
 
-
-
-console.log(cookie);
-
-
-
 $(window).on('load', function () {
 
         $('#preloader').fadeOut();
@@ -389,7 +383,7 @@ $.ajax({
     },
 
     success: function(response) {
-        console.log(response);
+        // console.log(response);
 
         // $('.progress__count').html(response.count);
         $('.progress__sold').html(response.sold);
@@ -399,7 +393,7 @@ $.ajax({
 
     },
     error: function(response) {
-        console.log(response);
+        // console.log(response);
     }
 
 });
@@ -538,7 +532,7 @@ $.ajax({
 
     },
     error: function(response) {
-        console.log(response);
+        // console.log(response);
     }
 
 });
@@ -597,7 +591,7 @@ $("#subscribeForm").submit(function( e ) {
 
     var form = $(this).serializeArray();
     var submit = $('button[name=submit]', $(this));
-    console.log(form);
+    // console.log(form);
     ajax(form);
     return false;
     

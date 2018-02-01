@@ -119,7 +119,7 @@ $.ajax({
 
     },
     error: function(response) {
-        console.log(response);
+        // console.log(response);
     }
 
 });
