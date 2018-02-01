@@ -146,21 +146,21 @@ $(window).on('load', function () {
         },1900);
 
         
-        setTimeout(function(){
-                $('.subscribe__overlay').fadeIn(400);
-            },1000);
-        
-
-        // if (cookie == null || cookie == undefined) {
-        
-            
-        //     setTimeout(function(){
+        // setTimeout(function(){
         //         $('.subscribe__overlay').fadeIn(400);
-        //     },5000);
+        //     },1000);
+        
 
-        //     setCookie('subscribe', '1', {expires:0});
+        if (cookie == null || cookie == undefined) {
+        
             
-        // }
+            setTimeout(function(){
+                $('.subscribe__overlay').fadeIn(400);
+            },5000);
+
+            setCookie('subscribe', '1', {expires:0});
+            
+        }
 
         var item = document.getElementById('company');
 
@@ -175,7 +175,7 @@ $(window).on('load', function () {
             }
         }
 
-        $(".navbar-desktop, .navbar-collapse").on('click', 'a', function (e) {
+        $(".navbar-desktop, .navbar-collapse").on('click', 'a:not(a[href="blog.html"])', function (e) {
             e.preventDefault();
 
             var hash = $(this).attr("href");
