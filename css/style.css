@@ -2525,6 +2525,20 @@ hr {
     padding-top: 43px!important;
   }
 }
+.section__content--blog {
+  padding-top: 250px;
+  text-align: center;
+}
+@media (max-width: 1920px) {
+  .section__content--blog {
+    padding-top: 130px;
+  }
+}
+@media (max-width: 575px) {
+  .section__content--blog {
+    padding-top: 43px!important;
+  }
+}
 @media (max-width: 1199px) {
   .section__content {
     padding-top: 43px;
