@@ -633,3 +633,14 @@ function ajax(data){
     });
 
 }
+
+// 
+
+
+
+
+// console.log($('.cases__text').length);
+
+// $.each($('.cases__text'), function(i,val) {
+//     $(this).text($(this).text().substr(0, 200) + '...')
+// })
